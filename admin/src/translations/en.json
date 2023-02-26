@@ -1,4 +1,5 @@
 {
     "country-select.label": "Country",
-    "country-select.description": "Select any country"
+    "country-select.description": "Select any country",
+    "country-select.unsupported-country-code": "Unsupported country code \"{countryCode}\""
 }

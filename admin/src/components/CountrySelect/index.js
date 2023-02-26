@@ -20,19 +20,19 @@ const CountrySelect = ({
     error,
 }) => {
     const { formatMessage, messages } = useIntl();
-
     const parsedOptions = JSON.parse(messages[getTrad('countries')]);
+    const isValidValue = parsedOptions.hasOwnProperty(value);
 
     return (
         <Field
             name={name}
             id={name}
-            error={error}
+            error={!isValidValue ? formatMessage({ id: getTrad('country-select.unsupported-country-code') }, { countryCode: value }) : error}
             required={required}
             hint={description && formatMessage(description)}
         >
             <Stack spacing={1}>
-                <FieldLabel action={labelAction} >
+                <FieldLabel action={labelAction}>
                     {formatMessage(intlLabel)}
                 </FieldLabel>
 
@@ -41,7 +41,7 @@ const CountrySelect = ({
                     aria-label={formatMessage(intlLabel)}
                     aria-disabled={disabled}
                     disabled={disabled}
-                    value={value}
+                    value={isValidValue ? value : null}
                     onChange={countryCode => onChange({ target: { name, value: countryCode, type: attribute.type }})}
                 >
                     {Object.entries(parsedOptions).map(([countryCode, countryName]) => (

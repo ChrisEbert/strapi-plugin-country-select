@@ -1,4 +1,5 @@
 {
     "country-select.label": "Land",
-    "country-select.description": "Eine Auswahl aller Länder"
+    "country-select.description": "Eine Auswahl aller Länder",
+    "country-select.unsupported-country-code": "Der Ländercode \"{countryCode}\" wird nicht unterstützt"
 }
