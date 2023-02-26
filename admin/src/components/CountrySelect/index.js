@@ -28,10 +28,11 @@ const CountrySelect = ({
             name={name}
             id={name}
             error={error}
+            required={required}
             hint={description && formatMessage(description)}
         >
             <Stack spacing={1}>
-                <FieldLabel action={labelAction} required={required}>
+                <FieldLabel action={labelAction} >
                     {formatMessage(intlLabel)}
                 </FieldLabel>
 
