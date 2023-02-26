@@ -7,7 +7,7 @@
         "custom-fields",
         "country"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "strapi": {
         "name": "country-select",
         "description": "Country Select custom field",
