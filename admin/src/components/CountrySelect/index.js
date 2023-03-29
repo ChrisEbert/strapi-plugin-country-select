@@ -21,7 +21,7 @@ const CountrySelect = ({
 }) => {
     const { formatMessage, messages } = useIntl();
     const parsedOptions = JSON.parse(messages[getTrad('countries')]);
-    const isValidValue = parsedOptions.hasOwnProperty(value);
+    const isValidValue = !value || parsedOptions.hasOwnProperty(value);
 
     return (
         <Field
