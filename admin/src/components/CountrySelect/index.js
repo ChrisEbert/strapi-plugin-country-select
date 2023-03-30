@@ -44,7 +44,7 @@ const CountrySelect = ({
                     value={isValidValue ? value : null}
                     onChange={countryCode => onChange({ target: { name, value: countryCode, type: attribute.type }})}
                 >
-                    {Object.entries(parsedOptions).map(([countryCode, countryName]) => (
+                    {Object.entries(parsedOptions).sort(([c1, n1], [c2, n2]) => n1.localeCompare(n2)).map(([countryCode, countryName]) => (
                         <ComboboxOption value={countryCode} key={countryCode}>{countryName}</ComboboxOption>
                     ))}
                 </Combobox>
