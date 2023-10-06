@@ -6,7 +6,7 @@ import { Field, FieldLabel, FieldError, FieldHint } from '@strapi/design-system/
 import { useIntl } from 'react-intl';
 import getTrad from '../../utils/getTrad';
 
-const CountrySelect = ({
+const CountrySelect = React.forwardRef(({
     value,
     onChange,
     name,
@@ -18,7 +18,7 @@ const CountrySelect = ({
     placeholder,
     disabled,
     error,
-}) => {
+}, forwardedRef) => {
     const { formatMessage, messages } = useIntl();
     const parsedOptions = JSON.parse(messages[getTrad('countries')]);
     const isValidValue = !value || parsedOptions.hasOwnProperty(value);
@@ -37,12 +37,13 @@ const CountrySelect = ({
                 </FieldLabel>
 
                 <Combobox
+                    ref={forwardedRef}
                     placeholder={placeholder && formatMessage(placeholder)} 
                     aria-label={formatMessage(intlLabel)}
                     aria-disabled={disabled}
                     disabled={disabled}
                     value={isValidValue ? value : null}
-                    onChange={countryCode => onChange({ target: { name, value: countryCode, type: attribute.type }})}
+                    onChange={countryCode => onChange({ target: { name: name, value: countryCode, type: attribute.type }})}
                 >
                     {Object.entries(parsedOptions).sort(([c1, n1], [c2, n2]) => n1.localeCompare(n2)).map(([countryCode, countryName]) => (
                         <ComboboxOption value={countryCode} key={countryCode}>{countryName}</ComboboxOption>
@@ -54,7 +55,7 @@ const CountrySelect = ({
             </Stack>
         </Field>
     )
-}
+})
 
 CountrySelect.defaultProps = {
     description: null,
