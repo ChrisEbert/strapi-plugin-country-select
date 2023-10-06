@@ -44,6 +44,7 @@ const CountrySelect = React.forwardRef(({
                     disabled={disabled}
                     value={isValidValue ? value : null}
                     onChange={countryCode => onChange({ target: { name: name, value: countryCode, type: attribute.type }})}
+                    onClear={() => onChange({ target: { name: name, value: '', type: attribute.type }})}
                 >
                     {Object.entries(parsedOptions).sort(([c1, n1], [c2, n2]) => n1.localeCompare(n2)).map(([countryCode, countryName]) => (
                         <ComboboxOption value={countryCode} key={countryCode}>{countryName}</ComboboxOption>
