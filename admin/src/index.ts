@@ -51,22 +51,23 @@ export default {
     },
 
     async registerTrads({ locales }: { locales: string[] }) {
-        console.log('tradtradtrad', locales);
-        
         const importedTrads = await Promise.all(
             locales.map((locale) => {
                 console.log(locale);
                 
                 return Promise.all([
                     /* webpackChunkName: "[pluginId]-[request]" */ import(`./translations/${locale}.json`),
-                    import(`i18n-iso-countries/langs/${locale}.json`)
+                    /* import(`i18n-iso-countries/langs/${locale}.json`})
+                
+                        as long as vite is unable to import dynamic files from node_modules folder, 
+                        we have to import a single language by default
+
+                        https://github.com/vitejs/vite/issues/14102
+                    */
+                    import(`i18n-iso-countries/langs/en.json`)
                 ])
                 .then(([pluginTranslations, countryTranslations]) => {
-                    console.log('foooooo');
-                    
                     countries.registerLocale(countryTranslations.default);
-console.log('#####################################', countryTranslations);
-
 
                     return {
                         data: {

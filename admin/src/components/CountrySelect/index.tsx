@@ -23,9 +23,9 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
     error,
 }, forwardedRef) => {
     const { formatMessage, messages } = useIntl();
-    console.log('####', messages);
+    const countries = messages[getTranslation('countries')] as string || '{}';
     
-    const parsedOptions: {[key: string]: string} = JSON.parse(messages[getTranslation('countries')] as string);
+    const parsedOptions: {[key: string]: string} = JSON.parse(countries);
     const isValidValue = !value || parsedOptions.hasOwnProperty(value);
 
     return (
