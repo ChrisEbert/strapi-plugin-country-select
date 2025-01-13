@@ -1,5 +1,6 @@
 {
-    "country-select.label": "Country",
-    "country-select.description": "Select any country",
-    "country-select.unsupported-country-code": "Unsupported country code \"{countryCode}\""
+    "label": "Country",
+    "description": "Select any country",
+    "unsupported-country-code": "Unsupported country code \"{countryCode}\"",
+    "default-value-description": "Has to be a an uppercase 2-letter ISO 3166-1 country code - e.g. DE"
 }

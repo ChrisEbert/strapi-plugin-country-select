@@ -1,5 +1,6 @@
 {
-    "country-select.label": "Land",
-    "country-select.description": "Eine Auswahl aller Länder",
-    "country-select.unsupported-country-code": "Der Ländercode \"{countryCode}\" wird nicht unterstützt"
+    "label": "Land",
+    "description": "Eine Auswahl aller Länder",
+    "unsupported-country-code": "Der Ländercode \"{countryCode}\" wird nicht unterstützt",
+    "default-value-description": "Muss ein zweistelliger ISO 3166-1 Ländercode in Großbuchstaben sein"
 }

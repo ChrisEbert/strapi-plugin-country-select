@@ -32,7 +32,7 @@ const CountrySelect = React.forwardRef<HTMLButtonElement, CountrySelectProps>(({
         <Field.Root
             name={name}
             id={name}
-            error={!isValidValue ? formatMessage({ id: getTranslation('country-select.unsupported-country-code') }, { countryCode: value }) : error}
+            error={!isValidValue ? formatMessage({ id: getTranslation('unsupported-country-code') }, { countryCode: value }) : error}
             required={required}
             hint={hint}
         >

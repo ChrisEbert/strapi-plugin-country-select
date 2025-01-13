@@ -12,11 +12,11 @@ export default {
             type: 'string',
             icon: CountrySelectIcon,
             intlLabel: {
-                id: getTranslation('country-select.label'),
+                id: getTranslation('label'),
                 defaultMessage: 'Country',
             },
             intlDescription: {
-                id: getTranslation('country-select.description'),
+                id: getTranslation('description'),
                 defaultMessage: 'Select any country',
             },
             components: {
@@ -25,6 +25,23 @@ export default {
             },
             options: {
                 advanced: [
+                    {
+                        sectionTitle: null,
+                        items: [
+                            {
+                                name: 'default',
+                                type: 'text',
+                                intlLabel: {
+                                    id: 'form.attribute.settings.default',
+                                    defaultMessage: 'Default value',
+                                },
+                                description: {
+                                    id: getTranslation('default-value-description'),
+                                    defaultMessage: "Has to be a an uppercase 2-letter ISO 3166-1 country code - e.g. DE",
+                                },
+                            },
+                        ],
+                    },
                     {
                         sectionTitle: {
                             id: 'global.settings',
@@ -53,8 +70,6 @@ export default {
     async registerTrads({ locales }: { locales: string[] }) {
         const importedTrads = await Promise.all(
             locales.map((locale) => {
-                console.log(locale);
-                
                 return Promise.all([
                     /* webpackChunkName: "[pluginId]-[request]" */ import(`./translations/${locale}.json`),
                     /* import(`i18n-iso-countries/langs/${locale}.json`})
@@ -78,8 +93,7 @@ export default {
                     };
                 })
                 .catch((err) => {
-                    console.log('errrrr', err);
-                    
+                    console.log(err);
                     return {
                         data: {},
                         locale,
@@ -87,7 +101,6 @@ export default {
                 });
             })
         );
-        console.log(importedTrads);
         
         return Promise.resolve(importedTrads);
     },

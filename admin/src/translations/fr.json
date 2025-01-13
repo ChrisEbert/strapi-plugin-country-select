@@ -1,5 +1,6 @@
 {
-    "country-select.label": "Pays",
-    "country-select.description": "Sélectionnez un pays",
-    "country-select.unsupported-country-code": "Code de pays non supporté : \"{countryCode}\""
+    "label": "Pays",
+    "description": "Sélectionnez un pays",
+    "unsupported-country-code": "Code de pays non supporté : \"{countryCode}\"",
+    "default-value-description": "Il doit s'agir d'un code pays ISO 3166-1 à deux lettres en majuscules"
 }
